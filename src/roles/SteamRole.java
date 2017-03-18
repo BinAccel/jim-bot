@@ -20,6 +20,19 @@ public class SteamRole extends BotRole {
         };
     }
 
+    public String getString(String tagName, Element element) {
+        NodeList list = element.getElementsByTagName(tagName);
+        if (list != null && list.getLength() > 0) {
+            NodeList subList = list.item(0).getChildNodes();
+
+            if (subList != null && subList.getLength() > 0) {
+                return subList.item(0).getNodeValue();
+            }
+        }
+
+        return null;
+    }
+
     @Override
     public void processCommand(IMessage message) {
         try {
@@ -38,7 +51,7 @@ public class SteamRole extends BotRole {
 
             Element id = id_doc.getDocumentElement();
             String id64 = getString("steamID64", id);
-            if (username.contains("765611980")) {
+            if (username.contains("76561198")) {
                 id64 = username;
             }
 
@@ -64,18 +77,5 @@ public class SteamRole extends BotRole {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }
-
-    public String getString(String tagName, Element element) {
-        NodeList list = element.getElementsByTagName(tagName);
-        if (list != null && list.getLength() > 0) {
-            NodeList subList = list.item(0).getChildNodes();
-
-            if (subList != null && subList.getLength() > 0) {
-                return subList.item(0).getNodeValue();
-            }
-        }
-
-        return null;
     }
 }
