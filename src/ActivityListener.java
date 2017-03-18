@@ -13,6 +13,7 @@ public class ActivityListener {
         roles = new ArrayList<>();
         roles.add(new PingRole());
         roles.add(new UsageRole(this.roles));
+        roles.add(new InfoRole());
         roles.add(new DMOJRole());
         roles.add(new SteamRole());
     }
