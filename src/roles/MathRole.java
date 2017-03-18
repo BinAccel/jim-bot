@@ -3,16 +3,16 @@ package roles;
 import com.wolfram.alpha.*;
 import sx.blah.discord.handle.obj.IMessage;
 
-public class MathRole extends BotRole{
+public class MathRole extends BotRole {
 
     private WAEngine engine;
 
-    public MathRole(String appid){
+    public MathRole(String appid) {
         super();
         super.roleName = "MathRole";
         super.commandPrefix = ".evaluate";
-        super.usage = new String[][] {
-                { ".evaluate <expression>", "Evaluates the given expression using WolframAlpha." }
+        super.usage = new String[][]{
+                {".evaluate <expression>", "Evaluates the given expression using WolframAlpha."}
         };
 
         engine = new WAEngine();
@@ -31,33 +31,29 @@ public class MathRole extends BotRole{
                 WAQueryResult result = engine.performQuery(query);
 
                 StringBuilder sb = new StringBuilder();
-                if (result.isSuccess()){
+                if (result.isSuccess()) {
                     for (WAPod pod : result.getPods()) {
                         if (!pod.isError()) {
-                            if (pod.getTitle().equals("Input") ||
-                                    pod.getTitle().equals("Result") ||
-                                    pod.getTitle().equals("Input interpretation") ||
-                                    pod.getTitle().equals("Definitions")) {
-                                sb.append(pod.getTitle() + ": ");
-                                for (WASubpod subpod : pod.getSubpods()) {
-                                    for (Object element : subpod.getContents()) {
-                                        if (element instanceof WAPlainText) {
-                                            sb.append(((WAPlainText) element).getText() + "\n");
-                                        }
+                            sb.append("#" + pod.getTitle() + ":\n");
+                            for (WASubpod subpod : pod.getSubpods()) {
+                                for (Object element : subpod.getContents()) {
+                                    if (element instanceof WAPlainText) {
+                                        sb.append(((WAPlainText) element).getText() + "\n");
                                     }
                                 }
                             }
+
                         }
                     }
                 } else {
                     sb.append("Query was not understood. No results available.");
                 }
 
-                message.getChannel().sendMessage(String.format("```\n%s\n```", sb.toString()));
-            } catch (WAException ex){
+                message.getChannel().sendMessage(String.format("```Markdown\n%s\n```", sb.toString()));
+            } catch (WAException ex) {
                 message.getChannel().sendMessage(String.format("Error during evaluation: " + ex.getLocalizedMessage()));
             }
-        } catch (Exception ex){
+        } catch (Exception ex) {
 
         }
     }
