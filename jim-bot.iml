@@ -12,5 +12,14 @@
     <orderEntry type="library" name="Discord4j-2.6.1-shaded" level="project" />
     <orderEntry type="library" name="json-20151123" level="project" />
     <orderEntry type="library" name="WolframAlpha-1.1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/json-simple-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -17,6 +17,7 @@ public class ActivityListener {
         roles.add(new DMOJRole());
         roles.add(new MathRole(BotConstants.WOLFRAM_KEY));
         roles.add(new SteamRole(BotConstants.STEAM_KEY));
+        roles.add(new OsuRole(BotConstants.OSU_KEY));
     }
 
     @EventSubscriber
