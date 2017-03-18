@@ -11,13 +11,17 @@ import sx.blah.discord.handle.obj.IMessage;
 
 public class SteamRole extends BotRole {
 
-    public SteamRole() {
+    private String steamKey;
+
+    public SteamRole(String _key) {
         super();
         super.roleName = "SteamRole";
         super.commandPrefix = ".steam";
         super.usage = new String[][]{
                 {".steam game <user>", "Query the current steam game played by user."}
         };
+
+        this.steamKey = _key;
     }
 
     public String getString(String tagName, Element element) {
@@ -55,8 +59,8 @@ public class SteamRole extends BotRole {
                 id64 = username;
             }
 
-            String pf_url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=46B20A9C3979D5E751CCA7E7AC5F09CF&steamids="
-                    + id64 + "&format=xml";
+            String pf_url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=" + this.steamKey
+                    + "&steamids=" + id64 + "&format=xml";
             Document pf_doc = b.parse(pf_url);
             Element pf = pf_doc.getDocumentElement();
 
