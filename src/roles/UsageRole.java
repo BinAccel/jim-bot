@@ -34,7 +34,7 @@ public class UsageRole extends BotRole{
                 sb.append("Commands for role \"" + role.roleName + "\"\n");
                 for (String[] cmd : role.usage){
                     sb.append(String.format("%s\t%s\n",
-                            String.format("%" + maxWidth + "." + maxWidth + "s", cmd[0]),
+                            String.format("%-" + maxWidth + "." + maxWidth + "s", cmd[0]),
                             cmd[1]
                     ));
                 }
