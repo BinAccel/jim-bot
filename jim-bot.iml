@@ -11,5 +11,6 @@
     <orderEntry type="library" name="Discord4j-dev-2.7.0-g4d465e8-150-shaded" level="project" />
     <orderEntry type="library" name="Discord4j-2.6.1-shaded" level="project" />
     <orderEntry type="library" name="json-20151123" level="project" />
+    <orderEntry type="library" name="WolframAlpha-1.1" level="project" />
   </component>
 </module>

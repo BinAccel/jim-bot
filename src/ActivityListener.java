@@ -15,6 +15,7 @@ public class ActivityListener {
         roles.add(new UsageRole(this.roles));
         roles.add(new InfoRole());
         roles.add(new DMOJRole());
+        roles.add(new MathRole(BotConstants.WOLFRAM_KEY));
         roles.add(new SteamRole());
     }
 

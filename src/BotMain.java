@@ -6,7 +6,7 @@ public class BotMain {
     public static void main(String[] args){
         try {
             ClientBuilder clientBuilder = new ClientBuilder();
-            clientBuilder.withToken(args[args.length - 1]);
+            clientBuilder.withToken(BotConstants.DISCORD_KEY);
             IDiscordClient client = clientBuilder.build();
             client.login(false);
 
