@@ -1,4 +1,5 @@
 import roles.BotRole;
+import roles.DMOJRole;
 import roles.PingRole;
 import roles.UsageRole;
 import sx.blah.discord.api.events.EventSubscriber;
@@ -15,6 +16,7 @@ public class ActivityListener {
         roles = new ArrayList<>();
         roles.add(new PingRole());
         roles.add(new UsageRole(this.roles));
+        roles.add(new DMOJRole());
     }
 
     @EventSubscriber

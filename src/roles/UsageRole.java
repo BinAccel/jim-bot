@@ -11,7 +11,7 @@ public class UsageRole extends BotRole{
     public UsageRole(ArrayList<BotRole> _roles){
         super();
         this.roles = _roles;
-        super.roleName = "roles.UsageRole";
+        super.roleName = "UsageRole";
         super.commandPrefix = ".help";
         super.usage = new String[][] {
                 { ".help", "Prints this help message." }

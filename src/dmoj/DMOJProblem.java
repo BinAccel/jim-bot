@@ -1,3 +1,5 @@
+package dmoj;
+
 public class DMOJProblem implements Comparable<DMOJProblem> {
     public boolean error;
     public String errorMessage;

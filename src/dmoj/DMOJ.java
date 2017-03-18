@@ -1,3 +1,5 @@
+package dmoj;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -5,8 +7,6 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.Properties;
 
 public class DMOJ {
     public static String getResponse(String request) throws Exception{

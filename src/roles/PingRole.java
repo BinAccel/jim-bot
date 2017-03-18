@@ -6,7 +6,7 @@ public class PingRole extends BotRole{
 
     public PingRole(){
         super();
-        super.roleName = "roles.PingRole";
+        super.roleName = "PingRole";
         super.commandPrefix = ".ping";
         super.usage = new String[][] {
                 { ".ping", "Pings the bot." }
