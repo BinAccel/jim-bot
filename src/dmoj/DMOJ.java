@@ -7,8 +7,31 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class DMOJ {
+
+    public static final String[] problemTypes = {
+            "Ad-Hoc",
+            "Advanced-Math",
+            "Brute-Force",
+            "Data-Structures",
+            "Divide-and-Conquer",
+            "Dynamic-Programming",
+            "Game-Theory",
+            "Geometry",
+            "Graph-Theory",
+            "Greedy-Algorithms",
+            "Implementation",
+            "Intermediate-Math",
+            "Recursion",
+            "Regular-Expressions",
+            "Simple-Math",
+            "Simulation",
+            "String-Algorithms"
+    };
+
     public static String getResponse(String request) throws Exception{
         System.out.println("Processing request: " + request);
 
@@ -44,6 +67,9 @@ public class DMOJ {
             problem.memLimit = obj.getDouble("memory_limit");
             problem.pointValue = obj.getDouble("points");
             problem.partial = obj.getBoolean("partial");
+            for (Object str : obj.getJSONArray("types")){
+                problem.types.add(((String) str).toLowerCase().replaceAll(" ", "-"));
+            }
 
             return problem;
         } catch (Exception ex){
@@ -80,6 +106,21 @@ public class DMOJ {
         } catch (Exception ex){
             return new DMOJUser(true, "Error fetching user details.");
         }
+    }
+
+    public static ArrayList<String> getProblemIDList(){
+        ArrayList<String> problems = new ArrayList<>();
+
+        try {
+            JSONObject response = new JSONObject(getResponse("https://dmoj.ca/api/problem/list"));
+            for (String str : response.keySet()){
+                problems.add(str);
+            }
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+        return problems;
     }
 
     public static String[] props = {

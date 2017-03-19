@@ -1,5 +1,7 @@
 package dmoj;
 
+import java.util.ArrayList;
+
 public class DMOJProblem implements Comparable<DMOJProblem> {
     public boolean error;
     public String errorMessage;
@@ -10,18 +12,21 @@ public class DMOJProblem implements Comparable<DMOJProblem> {
     public double timeLimit;
     public double memLimit;
     public boolean partial;
+    public ArrayList<String> types;
 
-    public DMOJProblem(){}
+    public DMOJProblem(){ types = new ArrayList<>(); }
 
     public DMOJProblem(boolean e, String msg){
         this.error = e;
         this.errorMessage = msg;
+        types = new ArrayList<>();
     }
 
     public DMOJProblem(String id, String name, double value) {
         this.problemID = id;
         this.problemName = name;
         this.pointValue = value;
+        types = new ArrayList<>();
     }
 
     @Override

@@ -3,7 +3,6 @@ package roles;
 import sx.blah.discord.handle.obj.IMessage;
 
 public class PingRole extends BotRole{
-
     public PingRole(){
         super();
         super.roleName = "PingRole";
